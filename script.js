@@ -3,12 +3,12 @@ const tripStart = new Date("2026-06-20T11:30:00-04:00");
 const days = [
   {
     date: "Saturday, June 20",
-    title: "Portland arrivals + rehearsal dinner",
+    title: "Portland arrivals + welcome party",
     image:
       "https://commons.wikimedia.org/wiki/Special:Redirect/file/Columbia%20River%20(Hood%20River,%20Oregon).jpg",
     copy:
       "Jacob and Amanda arrive around 11:30 a.m.; Jon and Lauren arrive around 1:00 p.m. Everyone heads east for the Hood River wedding weekend, then the welcome party runs 6:00-10:00 p.m. at The Society Hotel Bingen.",
-    tags: ["Portland", "Hood River", "The Society Hotel Bingen", "Welcome party"],
+    tags: ["Portland → Hood River", "Columbia Cliff Villas", "Welcome party"],
   },
   {
     date: "Sunday, June 21",
@@ -43,8 +43,8 @@ const days = [
     image:
       "https://commons.wikimedia.org/wiki/Special:Redirect/file/Volcanic%20Legacy%20Scenic%20Byway%20-%20Watchman%20Overlook%20at%20Crater%20Lake%20-%20NARA%20-%207722670.jpg",
     copy:
-      "Depart around 8:00 a.m. for the 2.5-hour drive. Rim Drive, Watchman Overlook, Discovery Point, and a leisurely sweep through one of the most unreal blue views in the country.",
-    tags: ["8:00 a.m.", "Rim Drive", "Watchman Overlook", "Discovery Point"],
+      "Depart around 8:00 a.m. for the ~2.5-hour drive. Cleetwood Cove (the swim-down trail) is closed through 2026, so the day is Rim Drive viewpoints plus a chosen rim hike — Garfield Peak is the top pick. See the hikes section below for the full menu.",
+    tags: ["8:00 a.m.", "Rim Drive", "Garfield Peak", "Watchman Peak", "No Cleetwood Cove"],
   },
   {
     date: "Thursday, June 25",
@@ -61,8 +61,8 @@ const days = [
     image:
       "https://commons.wikimedia.org/wiki/Special:Redirect/file/Portland%20Oregon%20skyline%20NW%20Everett%20and%2017th.jpg",
     copy:
-      "Morning drive to Portland, check into The Nines or the Ritz-Carlton, then a closing dinner downtown to toast the week.",
-    tags: ["3.5-hour drive", "The Nines", "Ritz-Carlton", "Closing dinner"],
+      "Morning drive back to Portland, check into The Nines downtown, then a closing dinner from the Portland picks list to toast the week.",
+    tags: ["3.5-hour drive", "The Nines", "Closing dinner", "Portland picks"],
   },
   {
     date: "Saturday, June 27",
@@ -70,84 +70,20 @@ const days = [
     image:
       "https://commons.wikimedia.org/wiki/Special:Redirect/file/PDX%20Carpet.jpg",
     copy:
-      "Departure day. Photos uploaded, favorite meals saved, and everyone heads home with a very full camera roll.",
+      "Departure day. Photos uploaded, favorite meals logged, and everyone heads home with a very full camera roll.",
     tags: ["Depart Portland", "Detroit", "Album day", "Home"],
   },
 ];
 
 const storageKeys = {
-  meals: "oregon-trip-meals",
   album: "oregon-trip-album",
 };
 
 const dayFeature = document.querySelector("#dayFeature");
 const dayButtons = [...document.querySelectorAll(".day-button")];
-const mealList = document.querySelector("#mealList");
-const mealCount = document.querySelector("#mealCount");
-const restaurantForm = document.querySelector("#restaurantForm");
 const albumForm = document.querySelector("#albumForm");
 const albumUrl = document.querySelector("#albumUrl");
 const albumLink = document.querySelector("#albumLink");
-const mapDetail = document.querySelector("#mapDetail");
-const mapStops = [...document.querySelectorAll(".map-stop")];
-const mapPins = [...document.querySelectorAll(".map-pin")];
-
-const routeStops = {
-  portland: {
-    label: "Portland",
-    title: "Arrivals and the final night",
-    copy:
-      "Fly into Portland on June 20, then return June 26 for the closing dinner and departure day.",
-    meta: ["PDX", "Final hotel", "Downtown dinner"],
-    link:
-      "https://www.google.com/maps/search/?api=1&query=Portland%2C%20OR",
-  },
-  hood: {
-    label: "Hood River",
-    title: "Wedding weekend in the Gorge",
-    copy:
-      "Columbia River views, the welcome party in Bingen, and Rachel and Wade's wedding at The Orchard Hood River.",
-    meta: ["Wedding", "Waterfront", "Shuttles"],
-    link:
-      "https://www.google.com/maps/search/?api=1&query=Hood%20River%2C%20OR",
-  },
-  "mount-hood": {
-    label: "Mount Hood Detour",
-    title: "Timberline Lodge alpine stop",
-    copy:
-      "Instead of driving straight to Bend, go from Hood River up OR-35 toward Timberline Lodge. It gives the group a top-of-Mount-Hood feeling without turning the day into a climb.",
-    meta: ["~6,000 ft", "Historic lodge", "Photo stop"],
-    link:
-      "https://www.google.com/maps/dir/Hood+River,+OR/Timberline+Lodge,+OR/Bend,+OR",
-  },
-  bend: {
-    label: "Bend",
-    title: "Paulina Ridge 32 at Tetherow",
-    copy:
-      "Five king bedrooms, hot tub, fire pit, golf and Cascade views, and quick access to the Deschutes River and Old Mill District.",
-    meta: ["Basecamp", "Tetherow", "Pool + hot tub"],
-    link:
-      "https://www.google.com/maps/search/?api=1&query=Tetherow%20Bend%20Oregon",
-  },
-  "crater-lake": {
-    label: "Crater Lake",
-    title: "Big scenic national park day",
-    copy:
-      "A full-day drive from Bend for Rim Drive viewpoints, Watchman Overlook, Discovery Point, and that impossible blue water.",
-    meta: ["Rim Drive", "Viewpoints", "Photo day"],
-    link:
-      "https://www.google.com/maps/search/?api=1&query=Crater%20Lake%20National%20Park",
-  },
-  "smith-rock": {
-    label: "Smith Rock",
-    title: "High desert canyon morning",
-    copy:
-      "A shorter Bend-area outing for dramatic rock spires, river trail options, and the bigger Misery Ridge loop for anyone wanting the workout.",
-    meta: ["30 min from Bend", "Hike options", "Canyon views"],
-    link:
-      "https://www.google.com/maps/search/?api=1&query=Smith%20Rock%20State%20Park",
-  },
-};
 
 function getDaysUntilTrip() {
   const now = new Date();
@@ -180,49 +116,6 @@ function renderDay(index) {
   });
 }
 
-function readMeals() {
-  try {
-    return JSON.parse(localStorage.getItem(storageKeys.meals)) || [];
-  } catch {
-    return [];
-  }
-}
-
-function writeMeals(meals) {
-  localStorage.setItem(storageKeys.meals, JSON.stringify(meals));
-}
-
-function renderMeals() {
-  const meals = readMeals();
-  mealCount.textContent = `${meals.length} saved`;
-
-  if (!meals.length) {
-    mealList.innerHTML = `
-      <div class="meal-card">
-        <div>
-          <strong>No meals yet</strong>
-          <span>Future favorites will show up here.</span>
-        </div>
-      </div>
-    `;
-    return;
-  }
-
-  mealList.innerHTML = meals
-    .map(
-      (meal, index) => `
-      <div class="meal-card">
-        <div>
-          <strong>${escapeHtml(meal.name)} · ${escapeHtml(meal.city)}</strong>
-          <span>${escapeHtml(meal.note || "Saved for the trip memory bank.")}</span>
-        </div>
-        <button class="icon-button" type="button" data-remove="${index}" aria-label="Remove ${escapeHtml(meal.name)}">×</button>
-      </div>
-    `,
-    )
-    .join("");
-}
-
 function renderAlbum() {
   const savedUrl = localStorage.getItem(storageKeys.album) || "";
   albumUrl.value = savedUrl;
@@ -238,65 +131,8 @@ function renderAlbum() {
   }
 }
 
-function renderMapStop(key) {
-  const stop = routeStops[key];
-  if (!stop || !mapDetail) return;
-
-  mapDetail.innerHTML = `
-    <span>${stop.label}</span>
-    <h3>${stop.title}</h3>
-    <p>${stop.copy}</p>
-    <div class="map-tags">
-      ${stop.meta.map((item) => `<em>${item}</em>`).join("")}
-    </div>
-    <a href="${stop.link}" target="_blank" rel="noreferrer">Open in Google Maps</a>
-  `;
-
-  mapStops.forEach((button) => {
-    button.classList.toggle("active", button.dataset.route === key);
-  });
-
-  mapPins.forEach((pin) => {
-    pin.classList.toggle("active", pin.dataset.mapPin === key);
-  });
-}
-
-function escapeHtml(value) {
-  return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
-
 dayButtons.forEach((button) => {
   button.addEventListener("click", () => renderDay(Number(button.dataset.day)));
-});
-
-restaurantForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const formData = new FormData(restaurantForm);
-  const meal = {
-    name: formData.get("name").trim(),
-    city: formData.get("city").trim(),
-    note: formData.get("note").trim(),
-    createdAt: new Date().toISOString(),
-  };
-  const meals = [meal, ...readMeals()];
-  writeMeals(meals);
-  restaurantForm.reset();
-  renderMeals();
-});
-
-mealList.addEventListener("click", (event) => {
-  const button = event.target.closest("[data-remove]");
-  if (!button) return;
-
-  const index = Number(button.dataset.remove);
-  const meals = readMeals().filter((_, mealIndex) => mealIndex !== index);
-  writeMeals(meals);
-  renderMeals();
 });
 
 albumForm.addEventListener("submit", (event) => {
@@ -310,13 +146,7 @@ albumForm.addEventListener("submit", (event) => {
   renderAlbum();
 });
 
-mapStops.forEach((button) => {
-  button.addEventListener("click", () => renderMapStop(button.dataset.route));
-});
-
 renderCountdown();
-renderMapStop("portland");
 renderDay(0);
-renderMeals();
 renderAlbum();
 setInterval(renderCountdown, 60_000);

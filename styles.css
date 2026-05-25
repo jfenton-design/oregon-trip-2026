@@ -771,11 +771,40 @@ main {
 
 .lodging-stop {
   position: relative;
+  display: block;
   min-height: 420px;
   overflow: hidden;
   border-radius: var(--radius);
   background: #223029;
   box-shadow: var(--shadow);
+  color: #fffaf0;
+  text-decoration: none;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.lodging-stop:hover,
+.lodging-stop:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 32px 80px rgba(24, 40, 32, 0.28);
+  outline: none;
+}
+
+.lodging-stop:hover img,
+.lodging-stop:focus-visible img {
+  transform: scale(1.04);
+}
+
+.lodging-stop img {
+  transition: transform 600ms ease;
+}
+
+.lodging-stop em {
+  display: inline-flex;
+  margin-top: 10px;
+  font-style: normal;
+  font-weight: 900;
+  color: var(--sun);
+  letter-spacing: 0.04em;
 }
 
 .lodging-stop::after {
@@ -816,6 +845,228 @@ main {
 .section-heading {
   max-width: 1180px;
   margin: 0 auto 22px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 4.1rem);
+  line-height: 0.98;
+}
+
+.section-lede {
+  max-width: 760px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 1.04rem;
+  line-height: 1.65;
+}
+
+.hike-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  max-width: 1180px;
+  margin: 0 auto 80px;
+}
+
+.hike-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: clamp(22px, 3vw, 32px);
+  border: 1px solid rgba(23, 32, 28, 0.1);
+  border-radius: var(--radius);
+  background: rgba(255, 250, 240, 0.82);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.hike-card.featured {
+  grid-column: 1 / -1;
+  background:
+    linear-gradient(135deg, rgba(33, 123, 136, 0.94), rgba(15, 82, 100, 0.92)),
+    var(--river-dark);
+  color: #fffaf0;
+  border-color: transparent;
+}
+
+.hike-rank {
+  align-self: flex-start;
+  border-radius: 999px;
+  padding: 7px 12px;
+  background: rgba(217, 133, 59, 0.18);
+  color: var(--sun);
+  font-size: 0.74rem;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hike-card.featured .hike-rank {
+  background: rgba(255, 250, 240, 0.18);
+  color: #ffd9ad;
+}
+
+.hike-card h3 {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  line-height: 1;
+}
+
+.hike-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 0;
+  padding: 14px 0;
+  border-top: 1px solid rgba(23, 32, 28, 0.1);
+  border-bottom: 1px solid rgba(23, 32, 28, 0.1);
+}
+
+.hike-card.featured .hike-stats {
+  border-color: rgba(255, 250, 240, 0.2);
+}
+
+.hike-stats span {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.hike-card.featured .hike-stats span {
+  color: rgba(255, 250, 240, 0.72);
+}
+
+.hike-stats strong {
+  font-size: 1.2rem;
+  font-weight: 950;
+  color: var(--ink);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.hike-card.featured .hike-stats strong {
+  color: #fffaf0;
+}
+
+.hike-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.hike-card.featured p {
+  color: rgba(255, 250, 240, 0.88);
+}
+
+.hike-note {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.hike-card.featured .hike-note {
+  color: rgba(255, 250, 240, 0.72);
+}
+
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  max-width: 1180px;
+  margin: 0 auto 80px;
+}
+
+.restaurant-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: clamp(22px, 3vw, 30px);
+  border: 1px solid rgba(23, 32, 28, 0.1);
+  border-radius: var(--radius);
+  background: rgba(255, 250, 240, 0.82);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.restaurant-card.featured {
+  grid-column: 1 / -1;
+  background:
+    linear-gradient(135deg, rgba(186, 93, 82, 0.95), rgba(217, 133, 59, 0.92)),
+    var(--rose);
+  color: #fffaf0;
+  border-color: transparent;
+}
+
+.restaurant-rank {
+  align-self: flex-start;
+  border-radius: 999px;
+  padding: 7px 12px;
+  background: rgba(255, 250, 240, 0.2);
+  color: #fffaf0;
+  font-size: 0.74rem;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.restaurant-card h3 {
+  margin: 0;
+  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+  line-height: 1;
+}
+
+.restaurant-meta {
+  margin: 0;
+  font-size: 0.84rem;
+  font-weight: 850;
+  color: var(--sun);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.restaurant-card.featured .restaurant-meta {
+  color: rgba(255, 250, 240, 0.86);
+}
+
+.restaurant-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.restaurant-card.featured p {
+  color: rgba(255, 250, 240, 0.92);
+}
+
+.restaurant-card em {
+  color: inherit;
+}
+
+.restaurant-note {
+  font-size: 0.88rem;
+  font-style: italic;
+  border-top: 1px solid rgba(23, 32, 28, 0.1);
+  padding-top: 12px;
+}
+
+.restaurant-card.featured .restaurant-note {
+  border-color: rgba(255, 250, 240, 0.24);
+  color: rgba(255, 250, 240, 0.86);
+}
+
+.restaurant-card .text-link {
+  margin-top: auto;
+}
+
+.restaurant-card.featured .text-link {
+  color: #fffaf0;
+  text-decoration: underline;
 }
 
 .planner {
@@ -1142,7 +1393,8 @@ input:focus {
 }
 
 .album-panel {
-  align-self: start;
+  max-width: 1180px;
+  margin: 0 auto 70px;
   background:
     linear-gradient(135deg, rgba(255, 250, 240, 0.84), rgba(231, 238, 232, 0.82)),
     linear-gradient(135deg, rgba(186, 93, 82, 0.18), rgba(33, 123, 136, 0.2));
@@ -1286,8 +1538,15 @@ footer a {
   .wedding-panel,
   .stay-panel,
   .planner,
-  .details-band {
+  .details-band,
+  .hike-grid,
+  .restaurant-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hike-card.featured,
+  .restaurant-card.featured {
+    grid-column: 1;
   }
 
   .route-strip {
