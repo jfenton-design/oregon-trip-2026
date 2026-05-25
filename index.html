@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oregon Wedding & Bend Adventure</title>
+    <link rel="preconnect" href="https://commons.wikimedia.org" />
+    <link rel="preconnect" href="https://upload.wikimedia.org" />
+    <link rel="preconnect" href="https://media.vrbo.com" />
+    <link rel="preconnect" href="https://cache.marriott.com" />
+    <link rel="preconnect" href="https://22a42af6d47971fdf142-71d18fa92d441d8978eeb27247425435.ssl.cf1.rackcdn.com" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <header class="hero" id="top">
+      <nav class="nav" aria-label="Trip sections">
+        <a href="#map">Map</a>
+        <a href="#itinerary">Itinerary</a>
+        <a href="#restaurants">Restaurants</a>
+        <a href="#album">Album</a>
+      </nav>
+
+      <div class="hero-media">
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Sunset%20on%20the%20Gorge.jpg"
+          alt="Sunset over the Columbia River Gorge near Hood River"
+        />
+      </div>
+
+      <section class="hero-copy" aria-label="Trip overview">
+        <div class="brand-lockup" aria-label="Fenton 5-Star Travel">
+          <img src="./assets/fenton-5-star-travel-logo.png" alt="Fenton 5-Star Travel" />
+        </div>
+        <p class="eyebrow">June 20-27, 2026</p>
+        <h1>Oregon Wedding & Bend Adventure</h1>
+        <p>
+          Hood River for Rachel and Wade's wedding, then a luxury Bend basecamp
+          for river time, Crater Lake, Smith Rock, family meals, and slow patio
+          evenings.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#itinerary">Open the week</a>
+          <a class="button secondary" href="#restaurants">Add a meal</a>
+        </div>
+      </section>
+
+      <aside class="countdown" aria-label="Countdown to Oregon">
+        <span id="countDays">0</span>
+        <small>days until Portland arrival</small>
+      </aside>
+    </header>
+
+    <main>
+      <section class="route-strip" aria-label="Trip route">
+        <div>
+          <strong>Portland</strong>
+          <span>Arrivals + finale</span>
+        </div>
+        <div>
+          <strong>Hood River</strong>
+          <span>Wedding weekend</span>
+        </div>
+        <div>
+          <strong>Mount Hood</strong>
+          <span>Optional alpine detour</span>
+        </div>
+        <div>
+          <strong>Bend</strong>
+          <span>Luxury basecamp</span>
+        </div>
+        <div>
+          <strong>Crater Lake</strong>
+          <span>Big scenic day</span>
+        </div>
+      </section>
+
+      <section class="intro-grid">
+        <article class="glass-panel">
+          <p class="section-kicker">The plan</p>
+          <h2>Clear route. One Bend basecamp.</h2>
+          <p>
+            One major move after Hood River, three king ensuite rooms near
+            Tetherow, pool and hot tub time, and a week paced around shared
+            meals instead of overstuffed days.
+          </p>
+        </article>
+      </section>
+
+      <section class="map-panel" id="map" aria-labelledby="mapTitle">
+        <div class="map-copy">
+          <p class="section-kicker">Route map</p>
+          <h2 id="mapTitle">Portland to the Gorge, over the mountain, into Bend.</h2>
+          <p>
+            This is a north-up route sketch, not a survey map: Portland and
+            Hood River sit along the Gorge, Mount Hood is the optional mountain
+            spur, Bend is the basecamp, Smith Rock is north of Bend, and Crater
+            Lake is the big southbound day.
+          </p>
+        </div>
+
+        <div class="map-shell">
+          <svg class="route-map" viewBox="0 0 900 520" role="img" aria-labelledby="routeMapTitle routeMapDesc">
+            <title id="routeMapTitle">Oregon trip route map</title>
+            <desc id="routeMapDesc">North-up schematic route from Portland east to Hood River, optional Mount Hood detour, south to Bend, north to Smith Rock, south to Crater Lake, and back to Portland.</desc>
+            <path class="map-land" d="M58 116 C150 70 240 88 336 122 C458 166 562 144 692 94 C766 66 824 88 854 142 L854 462 L58 462 Z" />
+            <path class="cascade-range" d="M334 78 C310 148 330 206 304 270 C282 326 284 388 246 452" />
+            <path class="gorge-line" d="M86 140 C178 116 258 120 348 134" />
+            <path class="map-route primary-route" d="M112 150 C178 136 244 134 324 142 C350 178 390 238 456 300 C518 358 560 408 612 452" />
+            <path class="map-route return-route" d="M456 300 C390 276 312 276 236 306 C172 332 132 382 96 432" />
+            <path class="map-route side-route" d="M456 300 C508 264 552 242 610 230" />
+            <path class="map-route detour-route" d="M324 142 C334 178 344 206 368 232 C398 260 424 280 456 300" />
+            <g class="map-label">
+              <text x="70" y="96">Columbia River Gorge</text>
+              <text x="280" y="72">Cascade Range</text>
+            </g>
+            <g class="map-pin" data-map-pin="portland" transform="translate(112 150)">
+              <circle r="15" />
+              <text x="24" y="5">Portland</text>
+            </g>
+            <g class="map-pin" data-map-pin="hood" transform="translate(324 142)">
+              <circle r="15" />
+              <text x="24" y="5">Hood River</text>
+            </g>
+            <g class="map-pin detour" data-map-pin="mount-hood" transform="translate(368 232)">
+              <circle r="15" />
+              <text x="-118" y="5">Mt. Hood</text>
+            </g>
+            <g class="map-pin" data-map-pin="bend" transform="translate(456 300)">
+              <circle r="15" />
+              <text x="24" y="5">Bend</text>
+            </g>
+            <g class="map-pin" data-map-pin="smith-rock" transform="translate(610 230)">
+              <circle r="15" />
+              <text x="24" y="5">Smith Rock</text>
+            </g>
+            <g class="map-pin" data-map-pin="crater-lake" transform="translate(612 452)">
+              <circle r="15" />
+              <text x="-150" y="5">Crater Lake</text>
+            </g>
+          </svg>
+
+          <p class="map-note">
+            North-up schematic: Hood River is east of Portland; Mount Hood is
+            the optional southbound spur; Bend is the basecamp; Smith Rock is
+            north of Bend; Crater Lake is south of Bend.
+          </p>
+
+          <div class="map-controls" aria-label="Route stops">
+            <button class="map-stop active" type="button" data-route="portland">Portland</button>
+            <button class="map-stop" type="button" data-route="hood">Hood River</button>
+            <button class="map-stop" type="button" data-route="mount-hood">Mt. Hood Detour</button>
+            <button class="map-stop" type="button" data-route="bend">Bend</button>
+            <button class="map-stop" type="button" data-route="crater-lake">Crater Lake</button>
+            <button class="map-stop" type="button" data-route="smith-rock">Smith Rock</button>
+          </div>
+
+          <article class="map-detail" id="mapDetail" aria-live="polite"></article>
+        </div>
+      </section>
+
+      <section class="wedding-panel" aria-labelledby="weddingTitle">
+        <div class="wedding-summary">
+          <p class="section-kicker">Rachel & Wade</p>
+          <h2 id="weddingTitle">Wedding weekend in Hood River.</h2>
+          <p>
+            The wedding weekend centers on Bingen and Hood River, with a
+            welcome party Saturday, wedding festivities Sunday, and shuttles
+            running between the Society Hotel, downtown Hood River, and the
+            venue.
+          </p>
+          <a class="text-link" href="https://www.zola.com/wedding/rayandwade" target="_blank" rel="noreferrer">
+            Open the wedding website
+          </a>
+        </div>
+
+        <div class="wedding-schedule" aria-label="Wedding weekend details">
+          <article>
+            <time>Sat, Jun 20 · 6:00-10:00 PM</time>
+            <h3>Welcome Party</h3>
+            <p>The Society Hotel Bingen · appetizers, pizza, beer, and wine.</p>
+          </article>
+          <article>
+            <time>Sun, Jun 21 · 3:30-10:00 PM</time>
+            <h3>Wedding</h3>
+            <p>The Orchard Hood River · ceremony, dinner, and dancing.</p>
+          </article>
+          <article>
+            <time>Sun night · 10:00 PM-1:30 AM</time>
+            <h3>After Party</h3>
+            <p>Back at The Society Hotel Hood River-Bingen for late-night dancing.</p>
+          </article>
+        </div>
+
+        <dl class="wedding-notes">
+          <div>
+            <dt>Dress code</dt>
+            <dd>Formal Garden Party: bright, colorful, festive, and summer-ready.</dd>
+          </div>
+          <div>
+            <dt>Shuttles</dt>
+            <dd>Depart the Society Hotel at 3:15 PM, with a Hood River pickup; return shuttles begin at 9:00 PM.</dd>
+          </div>
+          <div>
+            <dt>Travel</dt>
+            <dd>Fly into Portland. Rent a car for Hood River, the Gorge, and the Bend leg.</dd>
+          </div>
+          <div>
+            <dt>RSVP</dt>
+            <dd>Rachel and Wade request RSVPs by March 21.</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="stay-panel" aria-labelledby="stayTitle">
+        <div class="stay-copy">
+          <p class="section-kicker">Bend basecamp</p>
+          <h2 id="stayTitle">Paulina Ridge 32 at Tetherow.</h2>
+          <p>
+            A full-home stay built for the group: five king bedrooms, golf and
+            Cascade views, resort amenities, a hot tub, fire pit, and easy
+            access to the river, Old Mill District, and downtown Bend.
+          </p>
+          <a class="text-link" href="https://www.vrbo.com/2133832" target="_blank" rel="noreferrer">
+            Open the VRBO listing
+          </a>
+        </div>
+
+        <div class="stay-stats" aria-label="Paulina Ridge 32 details">
+          <article>
+            <strong>5</strong>
+            <span>king bedrooms</span>
+          </article>
+          <article>
+            <strong>5.5</strong>
+            <span>bathrooms</span>
+          </article>
+          <article>
+            <strong>10</strong>
+            <span>guest capacity</span>
+          </article>
+          <article>
+            <strong>3,195</strong>
+            <span>square feet</span>
+          </article>
+        </div>
+
+        <div class="stay-amenities" aria-label="Basecamp amenities">
+          <span>Hot tub</span>
+          <span>Fire pit</span>
+          <span>Pool access</span>
+          <span>Golf course access</span>
+          <span>Recreation center</span>
+          <span>Two-car garage</span>
+          <span>Complimentary Wi-Fi</span>
+          <span>Downtown Bend shuttle</span>
+        </div>
+
+        <div class="lodging-gallery" aria-label="Paulina Ridge 32 photo highlights">
+          <figure class="lodging-photo large">
+            <img src="https://media.vrbo.com/lodging/61000000/60670000/60661500/60661407/80d8372a.jpg?impolicy=resizecrop&ra=fit&rw=900" alt="Exterior of Paulina Ridge 32 at Tetherow" />
+            <figcaption>Exterior</figcaption>
+          </figure>
+          <figure class="lodging-photo">
+            <img src="https://media.vrbo.com/lodging/61000000/60670000/60661500/60661407/f57b8f6f.jpg?impolicy=resizecrop&ra=fit&rw=520" alt="Outdoor dining space at Paulina Ridge 32" />
+            <figcaption>Outdoor dining</figcaption>
+          </figure>
+          <figure class="lodging-photo">
+            <img src="https://media.vrbo.com/lodging/61000000/60670000/60661500/60661407/2255fd2a.jpg?impolicy=resizecrop&ra=fit&rw=520" alt="Terrace and patio at Paulina Ridge 32" />
+            <figcaption>Terrace</figcaption>
+          </figure>
+          <figure class="lodging-photo">
+            <img src="https://media.vrbo.com/lodging/61000000/60670000/60661500/60661407/ec7b4165.jpg?impolicy=resizecrop&ra=fit&rw=520" alt="Living area at Paulina Ridge 32" />
+            <figcaption>Living area</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section-heading">
+        <p class="section-kicker">Stays</p>
+        <h2>Where we’ll wake up.</h2>
+      </section>
+
+      <section class="lodging-stops" aria-label="Trip lodging images">
+        <article class="lodging-stop">
+          <img
+            src="https://22a42af6d47971fdf142-71d18fa92d441d8978eeb27247425435.ssl.cf1.rackcdn.com/responsive/Native/750px/u/exterior/outdoor-chairs.jpg"
+            alt="Outdoor chairs overlooking the Columbia River at Columbia Cliff Villas"
+          />
+          <div>
+            <span>Hood River · Jun 20-21</span>
+            <h3>Columbia Cliff Villas</h3>
+            <p>Gorge views, garden paths, and cliffside mornings before the wedding weekend events.</p>
+          </div>
+        </article>
+        <article class="lodging-stop">
+          <img
+            src="https://media.vrbo.com/lodging/61000000/60670000/60661500/60661407/80d8372a.jpg?impolicy=resizecrop&ra=fit&rw=900"
+            alt="Exterior of Paulina Ridge 32 at Tetherow"
+          />
+          <div>
+            <span>Bend · Jun 22-26</span>
+            <h3>Paulina Ridge 32</h3>
+            <p>Five king bedrooms, hot tub, fire pit, and resort access near Tetherow.</p>
+          </div>
+        </article>
+        <article class="lodging-stop">
+          <img
+            src="https://cache.marriott.com/content/dam/marriott-renditions/PDXLN/pdxln-exterior-9501-hor-wide.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=750px:*"
+            alt="Exterior of The Nines in downtown Portland"
+          />
+          <div>
+            <span>Portland · Jun 26</span>
+            <h3>The Nines</h3>
+            <p>Downtown finale energy with rooftop terrace views and a polished Portland landing spot.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-heading" id="itinerary">
+        <p class="section-kicker">Itinerary</p>
+        <h2>The week at a glance.</h2>
+      </section>
+
+      <section class="planner">
+        <div class="day-list" role="tablist" aria-label="Itinerary days">
+          <button class="day-button active" type="button" data-day="0" role="tab" aria-selected="true">
+            <span>Sat</span><strong>Jun 20</strong>
+          </button>
+          <button class="day-button" type="button" data-day="1" role="tab" aria-selected="false">
+            <span>Sun</span><strong>Jun 21</strong>
+          </button>
+          <button class="day-button" type="button" data-day="2" role="tab" aria-selected="false">
+            <span>Mon</span><strong>Jun 22</strong>
+          </button>
+          <button class="day-button" type="button" data-day="3" role="tab" aria-selected="false">
+            <span>Tue</span><strong>Jun 23</strong>
+          </button>
+          <button class="day-button" type="button" data-day="4" role="tab" aria-selected="false">
+            <span>Wed</span><strong>Jun 24</strong>
+          </button>
+          <button class="day-button" type="button" data-day="5" role="tab" aria-selected="false">
+            <span>Thu</span><strong>Jun 25</strong>
+          </button>
+          <button class="day-button" type="button" data-day="6" role="tab" aria-selected="false">
+            <span>Fri</span><strong>Jun 26</strong>
+          </button>
+          <button class="day-button" type="button" data-day="7" role="tab" aria-selected="false">
+            <span>Sat</span><strong>Jun 27</strong>
+          </button>
+        </div>
+
+        <article class="day-feature" id="dayFeature" aria-live="polite"></article>
+      </section>
+
+      <section class="section-heading">
+        <p class="section-kicker">Bend choices</p>
+        <h2>Active path or relaxed path.</h2>
+      </section>
+
+      <section class="choice-grid" aria-label="Active and relaxing Bend day options">
+        <article class="choice-card">
+          <time>Mon, Jun 22</time>
+          <h3>Arrival day</h3>
+          <div>
+            <strong>Active</strong>
+            <p>Take the Mount Hood / Timberline Lodge detour, then stretch the legs on a short Bend river walk.</p>
+          </div>
+          <div>
+            <strong>Relaxed</strong>
+            <p>Drive straight to Paulina Ridge 32, unpack slowly, use the hot tub, and do an easy dinner.</p>
+          </div>
+        </article>
+        <article class="choice-card">
+          <time>Tue, Jun 23</time>
+          <h3>Deschutes day</h3>
+          <div>
+            <strong>Active</strong>
+            <p>Deschutes River Trail, mountain biking, paddle session, or a 9-hole Tetherow round.</p>
+          </div>
+          <div>
+            <strong>Relaxed</strong>
+            <p>Old Mill lunch, pool time, patio reading, brewery stop, and a slow dinner in Bend.</p>
+          </div>
+        </article>
+        <article class="choice-card">
+          <time>Wed, Jun 24</time>
+          <h3>Crater Lake day</h3>
+          <div>
+            <strong>Active</strong>
+            <p>Rim viewpoints, short viewpoint walks, photos at Watchman Overlook, and Discovery Point.</p>
+          </div>
+          <div>
+            <strong>Relaxed</strong>
+            <p>Choose fewer stops, linger at the best overlooks, bring snacks, and return early for hot tub time.</p>
+          </div>
+        </article>
+        <article class="choice-card">
+          <time>Thu, Jun 25</time>
+          <h3>Smith Rock day</h3>
+          <div>
+            <strong>Active</strong>
+            <p>Misery Ridge / River Trail loop for dramatic canyon and rock spire views.</p>
+          </div>
+          <div>
+            <strong>Relaxed</strong>
+            <p>River Trail out-and-back, scenic overlooks, coffee in Bend, and an unhurried packing afternoon.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-heading" id="places">
+        <p class="section-kicker">Places</p>
+        <h2>Where we're going.</h2>
+      </section>
+
+      <section class="place-gallery" aria-label="Oregon places">
+        <article class="place-card tall">
+          <img
+            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Columbia%20River%20(Hood%20River,%20Oregon).jpg"
+            alt="Columbia River near Hood River, Oregon"
+          />
+          <div>
+            <span>Hood River</span>
+            <h3>Waterfront mornings before the wedding lights come on.</h3>
+          </div>
+        </article>
+        <article class="place-card">
+          <img
+            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Deschutes%20River%20in%20Bend,%20Oregon%20%287967057022%29.jpg"
+            alt="The Deschutes River in Bend, Oregon"
+          />
+          <div>
+            <span>Bend</span>
+            <h3>River trail walks, floats, breweries, and patio recovery.</h3>
+          </div>
+        </article>
+        <article class="place-card">
+          <img
+            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Volcanic%20Legacy%20Scenic%20Byway%20-%20Watchman%20Overlook%20at%20Crater%20Lake%20-%20NARA%20-%207722670.jpg"
+            alt="Crater Lake with Watchman Overlook and Llao Rock"
+          />
+          <div>
+            <span>Crater Lake</span>
+            <h3>The blue-lake day everyone will keep talking about.</h3>
+          </div>
+        </article>
+        <article class="place-card wide">
+          <img
+            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Smith%20Rocks%20from%20Ranch%20at%20the%20Canyon.JPG"
+            alt="Smith Rock State Park cliffs in Central Oregon"
+          />
+          <div>
+            <span>Smith Rock</span>
+            <h3>High desert cliffs, canyon curves, and a proper morning hike.</h3>
+          </div>
+        </article>
+      </section>
+
+      <section class="interactive-grid">
+        <article class="memory-panel" id="restaurants">
+          <div class="panel-head">
+            <div>
+              <p class="section-kicker">Family food log</p>
+              <h2>Restaurants we ate at</h2>
+            </div>
+            <span id="mealCount">0 saved</span>
+          </div>
+          <form id="restaurantForm" class="restaurant-form">
+            <label>
+              <span>Restaurant</span>
+              <input name="name" type="text" placeholder="Ariana, Zydeco, Deschutes..." required />
+            </label>
+            <label>
+              <span>City</span>
+              <input name="city" type="text" placeholder="Bend" required />
+            </label>
+            <label>
+              <span>Favorite bite</span>
+              <input name="note" type="text" placeholder="What should we remember?" />
+            </label>
+            <button class="button primary" type="submit">Save meal</button>
+          </form>
+          <div class="meal-list" id="mealList"></div>
+        </article>
+
+        <article class="album-panel" id="album">
+          <p class="section-kicker">Shared camera roll</p>
+          <h2>iCloud trip album</h2>
+          <p>
+            Paste the shared album link once and this hub keeps it ready for the
+            group.
+          </p>
+          <form id="albumForm" class="album-form">
+            <input id="albumUrl" type="url" placeholder="https://www.icloud.com/sharedalbum/..." />
+            <button class="button secondary" type="submit">Update link</button>
+          </form>
+          <a class="album-link disabled" id="albumLink" href="#" target="_blank" rel="noreferrer">
+            Album link pending
+          </a>
+        </article>
+      </section>
+
+      <section class="details-band">
+        <article>
+          <p class="section-kicker">Basecamp</p>
+          <h2>Views, space, and resort access.</h2>
+          <p>
+            Paulina Ridge 32 puts the group near Tetherow Golf Club, about
+            three minutes from the Deschutes River and seven minutes from the
+            Old Mill District. This is the week’s exhale.
+          </p>
+        </article>
+        <div class="amenities" aria-label="Basecamp amenities">
+          <span>Golf views</span>
+          <span>Cascade views</span>
+          <span>Hot tub</span>
+          <span>Fire pit</span>
+          <span>Pool access</span>
+          <span>Shuttle access</span>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <a href="#top">Back to the top</a>
+      <span class="footer-brand">
+        <img src="./assets/fenton-5-star-travel-logo.png" alt="" />
+        Fenton 5-Star Oregon Week
+      </span>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
