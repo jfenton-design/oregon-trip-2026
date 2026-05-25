@@ -112,7 +112,7 @@ input {
   z-index: 20;
   display: flex;
   gap: 6px;
-  width: min(calc(100% - 32px), 620px);
+  width: min(calc(100% - 32px), 720px);
   padding: 6px;
   border: 1px solid rgba(255, 255, 255, 0.38);
   border-radius: 999px;

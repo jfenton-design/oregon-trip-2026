@@ -32,7 +32,7 @@ const days = [
     date: "Tuesday, June 23",
     title: "Deschutes River day",
     image:
-      "https://commons.wikimedia.org/wiki/Special:Redirect/file/Deschutes%20River%20and%20dam%20near%20Bend,%20Oregon%20%283226145269%29.jpg",
+      "https://commons.wikimedia.org/wiki/Special:Redirect/file/Deschutes%20River%20north%20of%20Bend%20%287967319474%29.jpg",
     copy:
       "Deschutes River Trail walk, mountain biking or another activity, float or paddle options, Old Mill lunch, possible Tetherow 9-hole round, then pool, spa, patio, and Bend dining.",
     tags: ["River trail", "Float", "Old Mill", "Pool time", "Deschutes Brewing"],
@@ -75,15 +75,8 @@ const days = [
   },
 ];
 
-const storageKeys = {
-  album: "oregon-trip-album",
-};
-
 const dayFeature = document.querySelector("#dayFeature");
 const dayButtons = [...document.querySelectorAll(".day-button")];
-const albumForm = document.querySelector("#albumForm");
-const albumUrl = document.querySelector("#albumUrl");
-const albumLink = document.querySelector("#albumLink");
 
 function getDaysUntilTrip() {
   const now = new Date();
@@ -116,37 +109,10 @@ function renderDay(index) {
   });
 }
 
-function renderAlbum() {
-  const savedUrl = localStorage.getItem(storageKeys.album) || "";
-  albumUrl.value = savedUrl;
-
-  if (savedUrl) {
-    albumLink.href = savedUrl;
-    albumLink.textContent = "Open shared iCloud album";
-    albumLink.classList.remove("disabled");
-  } else {
-    albumLink.href = "#";
-    albumLink.textContent = "Album link pending";
-    albumLink.classList.add("disabled");
-  }
-}
-
 dayButtons.forEach((button) => {
   button.addEventListener("click", () => renderDay(Number(button.dataset.day)));
 });
 
-albumForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const value = albumUrl.value.trim();
-  if (value) {
-    localStorage.setItem(storageKeys.album, value);
-  } else {
-    localStorage.removeItem(storageKeys.album);
-  }
-  renderAlbum();
-});
-
 renderCountdown();
 renderDay(0);
-renderAlbum();
 setInterval(renderCountdown, 60_000);
